@@ -6,10 +6,10 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees import measures as registry
-from three_trees.models import reliability as rel
-from three_trees.storage import read_table, write_table
-from three_trees.synthetic import demo_config
+from trivium import measures as registry
+from trivium.models import reliability as rel
+from trivium.storage import read_table, write_table
+from trivium.synthetic import demo_config
 
 
 def _rows(n_teams: int = 100, n_matches: int = 8, seed: int = 7) -> pd.DataFrame:

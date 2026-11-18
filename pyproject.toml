@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "three-trees"
+name = "trivium"
 dynamic = ["version"]
 description = "Tournament pathways at the FIFA U-17 World Cups 2025: tactical profiles that explain who beats their strength."
 readme = "README.md"
@@ -32,16 +32,16 @@ dev = ["pytest>=8", "kaleido>=1.0"]
 figures = ["kaleido>=1.0"]
 
 [project.scripts]
-three-trees = "three_trees.cli:main"
+trivium = "trivium.cli:main"
 
 [tool.setuptools.dynamic]
-version = { attr = "three_trees.__version__" }
+version = { attr = "trivium.__version__" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-three_trees = ["lookup/*.csv"]
+trivium = ["lookup/*.csv"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

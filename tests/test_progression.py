@@ -6,8 +6,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.models import expectation as xp
-from three_trees.models import progression as pg
+from trivium.models import expectation as xp
+from trivium.models import progression as pg
 
 
 def _probabilities(gaps: np.ndarray) -> np.ndarray:

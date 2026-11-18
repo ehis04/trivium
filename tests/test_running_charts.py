@@ -4,13 +4,13 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.charts.running import (
+from trivium.charts.running import (
     cost_of_dominance,
     fifa_phase_profile,
     running_heatmap,
     shape_profile,
 )
-from three_trees.tracking.running import filled_in_share
+from trivium.tracking.running import filled_in_share
 
 
 def test_cost_of_dominance_uses_medians_and_marks_quadrants() -> None:

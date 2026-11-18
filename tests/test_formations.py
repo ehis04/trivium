@@ -5,10 +5,10 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.charts.formations import average_shape, formation_results, formation_timeline
-from three_trees.features.formations import listed_formations
-from three_trees.synthetic import demo_positions_window
-from three_trees.tracking import formations
+from trivium.charts.formations import average_shape, formation_results, formation_timeline
+from trivium.features.formations import listed_formations
+from trivium.synthetic import demo_positions_window
+from trivium.tracking import formations
 
 
 @pytest.mark.parametrize(
@@ -181,7 +181,7 @@ def test_formation_charts_have_window_depths_shape_lines_and_result_intervals() 
 
 
 def test_window_with_a_substitution_keeps_the_ten_longest_players() -> None:
-    from three_trees.tracking.formations import team_window_formations
+    from trivium.tracking.formations import team_window_formations
 
     depths = [20, 21, 22, 23, 45, 46, 47, 48, 70, 71]
     rows = [{"tournament": "men", "match_id": 1, "team": "A", "period": 1, "window": 0, "window_start_min": 0.0,

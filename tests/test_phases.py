@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.features import phases as ph
+from trivium.features import phases as ph
 
 A, B = 1, 2
 

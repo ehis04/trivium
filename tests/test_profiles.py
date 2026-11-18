@@ -6,10 +6,10 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees import synthetic
-from three_trees.features import efficiency as eff
-from three_trees.models import profiles
-from three_trees.storage import read_table
+from trivium import synthetic
+from trivium.features import efficiency as eff
+from trivium.models import profiles
+from trivium.storage import read_table
 
 
 @pytest.fixture(scope="module")
@@ -132,7 +132,7 @@ def test_profiles_stage_writes_tables_and_figures(build) -> None:
 
 
 def test_validation_on_demo_build(build) -> None:
-    from three_trees import validation
+    from trivium import validation
 
     validation.run(build)
     report = read_table(build, "check_report")

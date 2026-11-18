@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pandas as pd
 
-from three_trees.models import answer
+from trivium.models import answer
 
 
 def _comparison() -> pd.DataFrame:

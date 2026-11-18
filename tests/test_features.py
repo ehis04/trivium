@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.features import dominance as dom
-from three_trees.features import tables
+from trivium.features import dominance as dom
+from trivium.features import tables
 
 A, B = 1, 2
 

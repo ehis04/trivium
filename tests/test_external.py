@@ -8,8 +8,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.config import DATA_ROOT_ENV, load_config
-from three_trees.ingest import external as ex
+from trivium.config import DATA_ROOT_ENV, load_config
+from trivium.ingest import external as ex
 
 EXAMPLE = Path(__file__).resolve().parents[1] / "config.example.yaml"
 RESULTS_HEADER = "date,home_team,away_team,home_score,away_score,tournament,city,country,neutral\n"

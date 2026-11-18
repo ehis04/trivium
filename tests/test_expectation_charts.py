@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 
-from three_trees.charts import expectation as charts
+from trivium.charts import expectation as charts
 
 
 def _team_table(tournament: str = "men", teams: tuple[str, ...] = ("A", "B", "C")) -> pd.DataFrame:

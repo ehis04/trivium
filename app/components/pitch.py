@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
 
-from three_trees.charts.pitch import (
+from trivium.charts.pitch import (
     SHARE_CMAP,
     SHARE_NORM,
     _usable,

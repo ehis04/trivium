@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from three_trees.config import DATA_ROOT_ENV, TOURNAMENTS, ConfigError, load_config, repo_root
+from trivium.config import DATA_ROOT_ENV, TOURNAMENTS, ConfigError, load_config, repo_root
 
 EXAMPLE = Path(__file__).resolve().parents[1] / "config.example.yaml"
 
@@ -60,14 +60,14 @@ def test_missing_key_is_named(tmp_path: Path, data_root: Path) -> None:
 
 
 def test_missing_config_file(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.delenv("THREE_TREES_CONFIG", raising=False)
+    monkeypatch.delenv("TRIVIUM_CONFIG", raising=False)
     monkeypatch.chdir(tmp_path)
     with pytest.raises(ConfigError, match="config.example.yaml"):
         load_config()
 
 
 def test_load_env_file_keeps_existing_variables(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    from three_trees.config import load_env_file
+    from trivium.config import load_env_file
 
     env = tmp_path / ".env"
     env.write_text("# key for the Ask page\nexport APP_TEST_KEY='abc'\nAPP_TEST_SET=new\nAPP_TEST_EMPTY=\n",

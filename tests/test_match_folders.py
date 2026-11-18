@@ -1,4 +1,4 @@
-"""Tests for the match folder files (three_trees.ingest.match_folders).
+"""Tests for the match folder files (trivium.ingest.match_folders).
 
 Every test writes its own small fake file, so no real data is used.
 """
@@ -12,7 +12,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from three_trees.ingest.match_folders import (
+from trivium.ingest.match_folders import (
     FIFA_EVENT_COLUMNS,
     PHYSICAL_COLUMNS,
     folder_info,

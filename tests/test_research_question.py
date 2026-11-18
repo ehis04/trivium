@@ -10,11 +10,11 @@ import pytest
 from PIL import Image
 from streamlit.testing.v1 import AppTest
 
-from three_trees import synthetic
-from three_trees.charts.answer import point_evidence_chart
-from three_trees.definitions import MEASURE_POINTS, POINTS
-from three_trees.models.answer import point_evidence
-from three_trees.storage import write_table
+from trivium import synthetic
+from trivium.charts.answer import point_evidence_chart
+from trivium.definitions import MEASURE_POINTS, POINTS
+from trivium.models.answer import point_evidence
+from trivium.storage import write_table
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "app"))
@@ -181,13 +181,13 @@ def demo_root(tmp_path_factory: pytest.TempPathFactory) -> Path:
 
 @pytest.fixture(autouse=True)
 def demo_environment(demo_root: Path) -> Iterator[None]:
-    previous = os.environ.get("THREE_TREES_DATA_ROOT")
-    os.environ["THREE_TREES_DATA_ROOT"] = str(demo_root)
+    previous = os.environ.get("TRIVIUM_DATA_ROOT")
+    os.environ["TRIVIUM_DATA_ROOT"] = str(demo_root)
     yield
     if previous is None:
-        os.environ.pop("THREE_TREES_DATA_ROOT", None)
+        os.environ.pop("TRIVIUM_DATA_ROOT", None)
     else:
-        os.environ["THREE_TREES_DATA_ROOT"] = previous
+        os.environ["TRIVIUM_DATA_ROOT"] = previous
 
 
 def test_point_evidence_chart_groups_measures_and_marks_both_tournaments() -> None:
@@ -233,7 +233,7 @@ def test_research_question_page_shows_question_and_all_three_points() -> None:
 
 
 def test_slide_figure_manifest_lists_three_points_and_each_point(tmp_path: Path) -> None:
-    from three_trees.charts.export import write_figures
+    from trivium.charts.export import write_figures
 
     cfg = synthetic.write_demo(tmp_path / "figure-demo", scale="small", luck_sims=50, progress_sims=50)
     write_table(cfg, "profile_comparison", _profile_comparison())

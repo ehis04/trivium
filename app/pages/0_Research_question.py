@@ -10,11 +10,11 @@ import streamlit as st
 
 from components.data import load, require
 from components.layout import page_setup
-from three_trees.charts.answer import point_evidence_chart
-from three_trees.charts.simple import evidence_bars, scatter_fit
-from three_trees.charts.tactical import profile_outcomes
-from three_trees.definitions import POINTS, POINT_DEFINITIONS, PROFILE_SCORES, RESEARCH_QUESTION, STRENGTH
-from three_trees.models.answer import point_evidence, point_verdicts
+from trivium.charts.answer import point_evidence_chart
+from trivium.charts.simple import evidence_bars, scatter_fit
+from trivium.charts.tactical import profile_outcomes
+from trivium.definitions import POINTS, POINT_DEFINITIONS, PROFILE_SCORES, RESEARCH_QUESTION, STRENGTH
+from trivium.models.answer import point_evidence, point_verdicts
 
 
 def _text_list(value: object) -> str:

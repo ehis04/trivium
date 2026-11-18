@@ -3,9 +3,9 @@ from __future__ import annotations
 import pandas as pd
 import pytest
 
-from three_trees.features.efficiency import efficiency_position_group
-from three_trees.tracking.running import position_group, with_position_group
-from three_trees.tracking.stream import with_statsbomb_teams
+from trivium.features.efficiency import efficiency_position_group
+from trivium.tracking.running import position_group, with_position_group
+from trivium.tracking.stream import with_statsbomb_teams
 
 
 @pytest.mark.parametrize(
@@ -61,7 +61,7 @@ def test_mapped_running_joins_team_match_for_position_group_efficiency() -> None
 
 def test_team_match_provider_sums_fifa_and_tracking_per_team() -> None:
     """FIFA totals and tracking totals per team-match, in km; HSR split by state; top-3 share of HSR."""
-    from three_trees.tracking.running import team_match_provider
+    from trivium.tracking.running import team_match_provider
 
     running = pd.DataFrame([
         {"tournament": "men", "match_id": 1, "team": "Italy", "person_id": p, "state": s, "third": t,

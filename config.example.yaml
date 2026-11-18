@@ -3,11 +3,11 @@
 # Relative paths are read from data_root; absolute paths are used as given.
 #
 # Environment variables:
-#   THREE_TREES_CONFIG  path to the config file (default: ./config.yaml)
-#   THREE_TREES_DATA_ROOT        overrides data_root
+#   TRIVIUM_CONFIG  path to the config file (default: ./config.yaml)
+#   TRIVIUM_DATA_ROOT        overrides data_root
 #   ANTHROPIC_API_KEY    query box; read from the environment only, never stored here
 
-data_root: ~/three_trees_data
+data_root: ~/trivium_data
 
 # Parquet tables, DuckDB file, check report and Excel tables.
 build_dir: build

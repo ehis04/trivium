@@ -6,7 +6,7 @@ from collections.abc import Sequence
 
 import streamlit as st
 
-from three_trees.definitions import POINT_DEFINITIONS
+from trivium.definitions import POINT_DEFINITIONS
 
 TERMS: dict[str, str] = {
     "xG": (

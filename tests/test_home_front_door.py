@@ -13,7 +13,7 @@ import pytest
 from streamlit.testing.v1 import AppTest
 
 from components.glossary import TERMS, glossary
-from three_trees.definitions import POINT_DEFINITIONS, RESEARCH_QUESTION
+from trivium.definitions import POINT_DEFINITIONS, RESEARCH_QUESTION
 
 
 REQUIRED_TERMS = [

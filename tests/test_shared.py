@@ -5,9 +5,9 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from three_trees.config import DATA_ROOT_ENV, load_config
-from three_trees.storage import read_table, table_exists, table_path, write_table
-from three_trees.teams import clean_team_name, elo_name
+from trivium.config import DATA_ROOT_ENV, load_config
+from trivium.storage import read_table, table_exists, table_path, write_table
+from trivium.teams import clean_team_name, elo_name
 
 EXAMPLE = Path(__file__).resolve().parents[1] / "config.example.yaml"
 

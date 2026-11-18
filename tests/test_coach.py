@@ -10,11 +10,11 @@ import pandas as pd
 import pytest
 from streamlit.testing.v1 import AppTest
 
-from three_trees import synthetic
-from three_trees.charts.tactical import team_scores
-from three_trees.coach import NOTABLE_Z, scouting_report, scouting_report_from_tables
-from three_trees.measures import measure
-from three_trees.storage import write_table
+from trivium import synthetic
+from trivium.charts.tactical import team_scores
+from trivium.coach import NOTABLE_Z, scouting_report, scouting_report_from_tables
+from trivium.measures import measure
+from trivium.storage import write_table
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "app"))
@@ -347,13 +347,13 @@ def coach_demo_root(tmp_path_factory: pytest.TempPathFactory) -> Path:
 
 @pytest.fixture(autouse=True)
 def demo_environment(coach_demo_root: Path) -> Iterator[None]:
-    previous = os.environ.get("THREE_TREES_DATA_ROOT")
-    os.environ["THREE_TREES_DATA_ROOT"] = str(coach_demo_root)
+    previous = os.environ.get("TRIVIUM_DATA_ROOT")
+    os.environ["TRIVIUM_DATA_ROOT"] = str(coach_demo_root)
     yield
     if previous is None:
-        os.environ.pop("THREE_TREES_DATA_ROOT", None)
+        os.environ.pop("TRIVIUM_DATA_ROOT", None)
     else:
-        os.environ["THREE_TREES_DATA_ROOT"] = previous
+        os.environ["TRIVIUM_DATA_ROOT"] = previous
 
 
 def test_coach_view_runs_with_demo_build_for_both_tournaments(coach_demo_root: Path) -> None:

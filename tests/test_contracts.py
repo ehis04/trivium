@@ -6,8 +6,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees import cli, contracts, measures, synthetic
-from three_trees.storage import read_table, write_table
+from trivium import cli, contracts, measures, synthetic
+from trivium.storage import read_table, write_table
 
 
 def _contract() -> contracts.Contract:
@@ -99,7 +99,7 @@ def test_build_status(build) -> None:
 
 def test_cli_check_contracts_and_status(build, monkeypatch: pytest.MonkeyPatch,
                                         capsys: pytest.CaptureFixture[str]) -> None:
-    monkeypatch.setenv("THREE_TREES_DATA_ROOT", str(build.data_root))
+    monkeypatch.setenv("TRIVIUM_DATA_ROOT", str(build.data_root))
     config = str(Path(__file__).resolve().parents[1] / "config.example.yaml")
     assert cli.main(["check-contracts", "--config", config]) == 0
     assert "0 failed checks" in capsys.readouterr().out

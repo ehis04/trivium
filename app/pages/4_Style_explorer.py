@@ -13,8 +13,8 @@ import streamlit as st
 from components.data import load, require
 from components.layout import page_setup, show_table
 from components.sidebar import select_context
-from three_trees.charts.formations import formation_results
-from three_trees.measures import available, measures
+from trivium.charts.formations import formation_results
+from trivium.measures import available, measures
 
 
 page_setup("How teams play")

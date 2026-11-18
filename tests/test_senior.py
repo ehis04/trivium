@@ -7,9 +7,9 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees import synthetic
-from three_trees.config import DATA_ROOT_ENV, load_config
-from three_trees.models import senior
+from trivium import synthetic
+from trivium.config import DATA_ROOT_ENV, load_config
+from trivium.models import senior
 
 EXAMPLE = Path(__file__).resolve().parents[1] / "config.example.yaml"
 
@@ -89,9 +89,9 @@ def test_download_shootouts_keeps_existing(tmp_path: Path, monkeypatch: pytest.M
 
 
 def test_run_builds_open_data_only_when_missing(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    from three_trees.ingest import open_data
-    from three_trees.models import senior_signifiers
-    from three_trees.storage import write_table
+    from trivium.ingest import open_data
+    from trivium.models import senior_signifiers
+    from trivium.storage import write_table
 
     monkeypatch.setenv(DATA_ROOT_ENV, str(tmp_path))
     cfg = load_config(EXAMPLE)

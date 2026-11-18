@@ -13,17 +13,17 @@ from components.data import load, require
 from components.glossary import glossary
 from components.layout import expected_stage_label, page_setup, show_table, stage_name
 from components.sidebar import select_context
-from three_trees.charts.expectation import (
+from trivium.charts.expectation import (
     expected_vs_actual_points,
     expected_vs_actual_stage,
     overperformance_chart,
     overperformance_dumbbell,
 )
-from three_trees.charts.profiles import profile_comparison_chart
-from three_trees.charts.simple import evidence_bars, profile_bars, ranked_bars, scatter_fit
-from three_trees.charts.tactical import profile_outcomes
-from three_trees.models.answer import point_evidence
-from three_trees.definitions import RESEARCH_QUESTION
+from trivium.charts.profiles import profile_comparison_chart
+from trivium.charts.simple import evidence_bars, profile_bars, ranked_bars, scatter_fit
+from trivium.charts.tactical import profile_outcomes
+from trivium.models.answer import point_evidence
+from trivium.definitions import RESEARCH_QUESTION
 
 
 page_setup("Tournament pathways")

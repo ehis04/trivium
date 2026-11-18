@@ -6,7 +6,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-import three_trees.charts  # noqa: F401  (visible reference lines in the simple_white template)
+import trivium.charts  # noqa: F401  (visible reference lines in the simple_white template)
 
 ACCENT = "#0072B2"
 GREY = "#777777"

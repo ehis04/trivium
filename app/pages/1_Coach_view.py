@@ -10,10 +10,10 @@ import streamlit as st
 from components.data import require
 from components.layout import page_setup
 from components.sidebar import select_context
-from three_trees.charts.tactical import team_scores
-from three_trees.coach import scouting_report
-from three_trees.config import load_config
-from three_trees.definitions import POINT_DEFINITIONS, POINTS, RESEARCH_QUESTION, STRENGTH
+from trivium.charts.tactical import team_scores
+from trivium.coach import scouting_report
+from trivium.config import load_config
+from trivium.definitions import POINT_DEFINITIONS, POINTS, RESEARCH_QUESTION, STRENGTH
 
 
 page_setup("Coach view: how to play against them")

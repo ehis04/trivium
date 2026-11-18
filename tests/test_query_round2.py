@@ -5,11 +5,11 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from three_trees.config import Config
-from three_trees.measures import load_measures
-from three_trees.query import fallback, functions
-from three_trees.storage import read_table, write_table
-from three_trees.synthetic import demo_config, write_demo
+from trivium.config import Config
+from trivium.measures import load_measures
+from trivium.query import fallback, functions
+from trivium.storage import read_table, write_table
+from trivium.synthetic import demo_config, write_demo
 
 
 @pytest.fixture(scope="module")
@@ -247,7 +247,7 @@ def test_new_tool_schemas_match_catalogue() -> None:
 
 
 def test_tactical_profile_and_profiles_that_win(demo_cfg: Config) -> None:
-    from three_trees.query import fallback, functions
+    from trivium.query import fallback, functions
 
     teams = functions.read_table(demo_cfg, "tactical_profile_team")
     team = teams.loc[teams["tournament"] == "men", "team"].iloc[0]

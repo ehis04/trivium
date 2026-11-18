@@ -11,10 +11,10 @@ import streamlit as st
 from components.data import load
 from components.layout import page_setup, show_table
 from components.sidebar import select_context
-from three_trees.config import load_config
-from three_trees.db import tables
-from three_trees.definitions import POINT_DEFINITIONS, RESEARCH_QUESTION, STRENGTH
-from three_trees.measures import measures
+from trivium.config import load_config
+from trivium.db import tables
+from trivium.definitions import POINT_DEFINITIONS, RESEARCH_QUESTION, STRENGTH
+from trivium.measures import measures
 
 
 page_setup("Method and limits")

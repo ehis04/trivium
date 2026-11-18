@@ -14,9 +14,9 @@ from components.findings import build_findings
 from components.layout import expected_stage_label, format_points, page_setup, show_table, stage_name
 from components.pitch import zone_map
 from components.sidebar import select_context
-from three_trees.charts.tactical import team_scores
-from three_trees.charts.team import phase_dot_plot, tournament_lines
-from three_trees.measures import available, measures
+from trivium.charts.tactical import team_scores
+from trivium.charts.team import phase_dot_plot, tournament_lines
+from trivium.measures import available, measures
 
 
 page_setup("Team report")

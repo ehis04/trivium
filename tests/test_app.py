@@ -14,7 +14,7 @@ import pyarrow as pa
 import pytest
 from streamlit.testing.v1 import AppTest
 
-from three_trees import synthetic
+from trivium import synthetic
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "app"))
@@ -39,13 +39,13 @@ def demo_root(tmp_path_factory: pytest.TempPathFactory) -> Path:
 
 @pytest.fixture(autouse=True)
 def demo_environment(demo_root: Path) -> Iterator[None]:
-    previous = os.environ.get("THREE_TREES_DATA_ROOT")
-    os.environ["THREE_TREES_DATA_ROOT"] = str(demo_root)
+    previous = os.environ.get("TRIVIUM_DATA_ROOT")
+    os.environ["TRIVIUM_DATA_ROOT"] = str(demo_root)
     yield
     if previous is None:
-        os.environ.pop("THREE_TREES_DATA_ROOT", None)
+        os.environ.pop("TRIVIUM_DATA_ROOT", None)
     else:
-        os.environ["THREE_TREES_DATA_ROOT"] = previous
+        os.environ["TRIVIUM_DATA_ROOT"] = previous
 
 
 def _assert_no_player_detail(app: AppTest) -> None:
@@ -85,7 +85,7 @@ def test_missing_table_shows_pipeline_notice(demo_root: Path, tmp_path: Path) ->
     copied_root = tmp_path / "copy"
     shutil.copytree(demo_root / "build", copied_root / "build")
     (copied_root / "build" / "team_match.parquet").unlink()
-    os.environ["THREE_TREES_DATA_ROOT"] = str(copied_root)
+    os.environ["TRIVIUM_DATA_ROOT"] = str(copied_root)
 
     app = AppTest.from_file(str(PAGES[1]), default_timeout=60).run()
 

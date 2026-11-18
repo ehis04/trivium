@@ -15,11 +15,11 @@ import pytest
 from PIL import Image
 
 from components.charts import ACCENT, LIGHT_GREY, efficiency_rank
-from three_trees import synthetic
-from three_trees.charts.export import write_figures
-from three_trees.charts.pitch import zone_figure
-from three_trees.config import repo_root
-from three_trees.storage import write_table
+from trivium import synthetic
+from trivium.charts.export import write_figures
+from trivium.charts.pitch import zone_figure
+from trivium.config import repo_root
+from trivium.storage import write_table
 
 
 def test_zone_figure_axes_and_skipping() -> None:

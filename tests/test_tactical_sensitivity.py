@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.charts.tactical import sensitivity_chart
-from three_trees.models import tactical_profiles as tp
+from trivium.charts.tactical import sensitivity_chart
+from trivium.models import tactical_profiles as tp
 
 
 def _sensitivity_frames(n_teams: int = 40) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
@@ -129,9 +129,9 @@ def test_sensitivity_chart_has_intervals_zero_line_and_highlighted_main() -> Non
 
 
 def test_profiles_stage_writes_sensitivity_table(tmp_path) -> None:
-    from three_trees import synthetic
-    from three_trees.models import profiles
-    from three_trees.storage import read_table
+    from trivium import synthetic
+    from trivium.models import profiles
+    from trivium.storage import read_table
 
     cfg = synthetic.write_demo(tmp_path / "demo", scale="small", luck_sims=100, progress_sims=100)
     profiles.run(cfg)

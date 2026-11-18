@@ -3,7 +3,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from three_trees import validation as v
+from trivium import validation as v
 
 
 def _checks() -> dict[str, pd.DataFrame]:

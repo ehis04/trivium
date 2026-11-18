@@ -11,8 +11,8 @@ import streamlit as st
 from components.data import load, require
 from components.layout import page_setup, show_table, stage_name
 from components.sidebar import select_context
-from three_trees.definitions import POINT_DEFINITIONS, POINTS, RESEARCH_QUESTION, STRENGTH
-from three_trees.charts.tactical import profile_map, profile_outcomes, score_associations, sensitivity_chart
+from trivium.definitions import POINT_DEFINITIONS, POINTS, RESEARCH_QUESTION, STRENGTH
+from trivium.charts.tactical import profile_map, profile_outcomes, score_associations, sensitivity_chart
 
 
 page_setup("Which team styles go with better-than-expected results?")

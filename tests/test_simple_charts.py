@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.charts import simple
+from trivium.charts import simple
 
 
 def _teams() -> pd.DataFrame:

@@ -22,7 +22,7 @@ DATA_SUFFIXES = frozenset(
     }
 )
 DATA_DIRS = frozenset({"data", "build", "raw", "downloads"})
-ALLOWED_DATA = {PurePosixPath("src/three_trees/lookup"): frozenset({".csv"})}
+ALLOWED_DATA = {PurePosixPath("src/trivium/lookup"): frozenset({".csv"})}
 LOCAL_FILES = frozenset({"config.yaml", ".env", "secrets.toml"})
 MAX_BYTES = 1_000_000
 SIZE_EXEMPT_SUFFIXES = frozenset({".pptx"})
@@ -103,7 +103,7 @@ def test_no_data_in_history() -> None:
         "u17_world_cup_2025_events_part001.csv",
         "statsbomb/u17_womens_world_cup_2025_matches.csv",
         "build/team_match.parquet",
-        "build/three_trees.duckdb",
+        "build/trivium.duckdb",
         "M1 Qatar - Italy/RSV_Broadcast_Tracking_Data_Tactical_Wide.zip",
         "M1 Qatar - Italy/tracking_data.jsonl",
         "M1 Qatar - Italy/metadata.json",
@@ -120,6 +120,6 @@ def test_gitignore_blocks(path: str) -> None:
 
 
 def test_gitignore_allows_lookups() -> None:
-    path = "src/three_trees/lookup/countries.csv"
+    path = "src/trivium/lookup/countries.csv"
     result = subprocess.run(["git", "check-ignore", "--no-index", "-q", path], cwd=REPO_ROOT)
     assert result.returncode == 1, f"{path} is ignored by .gitignore"

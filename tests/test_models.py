@@ -7,9 +7,9 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.config import DATA_ROOT_ENV, load_config
-from three_trees.models import expectation as xp
-from three_trees.storage import read_table, write_table
+from trivium.config import DATA_ROOT_ENV, load_config
+from trivium.models import expectation as xp
+from trivium.storage import read_table, write_table
 
 EXAMPLE = Path(__file__).resolve().parents[1] / "config.example.yaml"
 

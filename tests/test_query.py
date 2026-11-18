@@ -15,10 +15,10 @@ import pandas as pd
 import pytest
 from streamlit.testing.v1 import AppTest
 
-from three_trees.config import Config
-from three_trees.measures import load_measures
-from three_trees.query import fallback, functions, llm
-from three_trees.query.functions import (
+from trivium.config import Config
+from trivium.measures import load_measures
+from trivium.query import fallback, functions, llm
+from trivium.query.functions import (
     FORBIDDEN_COLUMNS,
     MAX_ROWS,
     TOOLS,
@@ -27,7 +27,7 @@ from three_trees.query.functions import (
     ensure_aggregated,
     run_function,
 )
-from three_trees.synthetic import demo_config, write_demo
+from trivium.synthetic import demo_config, write_demo
 
 
 @pytest.fixture(scope="module")
@@ -35,14 +35,14 @@ def demo_cfg(tmp_path_factory: pytest.TempPathFactory) -> Config:
     """Module-scoped small synthetic demo build."""
     out = tmp_path_factory.mktemp("demo")
     write_demo(out, scale="small", luck_sims=200, progress_sims=200)
-    old_env = os.environ.get("THREE_TREES_DATA_ROOT")
-    os.environ["THREE_TREES_DATA_ROOT"] = str(out)
+    old_env = os.environ.get("TRIVIUM_DATA_ROOT")
+    os.environ["TRIVIUM_DATA_ROOT"] = str(out)
     cfg = demo_config(out)
     yield cfg
     if old_env is None:
-        os.environ.pop("THREE_TREES_DATA_ROOT", None)
+        os.environ.pop("TRIVIUM_DATA_ROOT", None)
     else:
-        os.environ["THREE_TREES_DATA_ROOT"] = old_env
+        os.environ["TRIVIUM_DATA_ROOT"] = old_env
 
 
 # ---------------------------------------------------------------- catalogue tests
@@ -168,7 +168,7 @@ def test_tools_schema_validation() -> None:
     assert len(TOOLS) == 24
     reg_measures = set(load_measures()["measure"].unique())
 
-    from three_trees.query.functions import MAX_STRICT_TOOLS, NON_STRICT_TOOLS
+    from trivium.query.functions import MAX_STRICT_TOOLS, NON_STRICT_TOOLS
 
     assert sum(tool["strict"] for tool in TOOLS) <= MAX_STRICT_TOOLS
     for tool in TOOLS:
@@ -434,7 +434,7 @@ def test_claude_empty_answer_falls_back(demo_cfg: Config) -> None:
 
 @pytest.fixture(scope="module")
 def styled_cfg(tmp_path_factory: pytest.TempPathFactory) -> Config:
-    from three_trees.models import styles
+    from trivium.models import styles
 
     cfg = write_demo(tmp_path_factory.mktemp("styled"), scale="small", luck_sims=200, progress_sims=200)
     styles.run(cfg)
@@ -442,7 +442,7 @@ def styled_cfg(tmp_path_factory: pytest.TempPathFactory) -> Config:
 
 
 def test_teams_by_style_keys_by_tournament_and_matches_words(styled_cfg: Config) -> None:
-    from three_trees.storage import read_table
+    from trivium.storage import read_table
 
     labels = read_table(styled_cfg, "style_types").query("tournament == 'men'")["style_label"].unique()
     target = next(label for label in labels if "high possession" in label)

@@ -8,11 +8,11 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from three_trees.config import DATA_ROOT_ENV, load_config
-from three_trees.features import dominance as dom
-from three_trees.features import tables
-from three_trees.ingest import open_data as od
-from three_trees.ingest import statsbomb as sb
+from trivium.config import DATA_ROOT_ENV, load_config
+from trivium.features import dominance as dom
+from trivium.features import tables
+from trivium.ingest import open_data as od
+from trivium.ingest import statsbomb as sb
 
 EXAMPLE = Path(__file__).resolve().parents[1] / "config.example.yaml"
 LABEL = "senior_women_euro2025"

@@ -8,8 +8,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import pandas as pd
 import streamlit as st
 
-from three_trees.charts.running import cost_of_dominance, fifa_phase_profile, running_heatmap, shape_profile
-from three_trees.tracking.running import (
+from trivium.charts.running import cost_of_dominance, fifa_phase_profile, running_heatmap, shape_profile
+from trivium.tracking.running import (
     EXCLUDE_FILLED_IN_SHARE,
     IMPUTED_SHARE_MAX,
     excluded_matches,

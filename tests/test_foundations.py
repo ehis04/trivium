@@ -6,9 +6,9 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees import cli, db, measures, synthetic
-from three_trees.config import repo_root
-from three_trees.storage import read_table, write_table
+from trivium import cli, db, measures, synthetic
+from trivium.config import repo_root
+from trivium.storage import read_table, write_table
 
 
 # ---------------------------------------------------------------- measure registry

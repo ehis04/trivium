@@ -8,9 +8,9 @@ import pandas as pd
 import pytest
 from sklearn.linear_model import RidgeCV
 
-from three_trees.models import drivers as dr
-from three_trees.storage import read_table, write_table
-from three_trees.synthetic import demo_config
+from trivium.models import drivers as dr
+from trivium.storage import read_table, write_table
+from trivium.synthetic import demo_config
 
 
 def _rows(n_teams: int = 20, seed: int = 32) -> pd.DataFrame:

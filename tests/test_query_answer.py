@@ -7,12 +7,12 @@ from types import ModuleType
 import pandas as pd
 import pytest
 
-from three_trees.config import Config
-from three_trees.definitions import POINT_DEFINITIONS, POINTS, RESEARCH_QUESTION
-from three_trees.models import answer
-from three_trees.query import fallback, functions
-from three_trees.storage import read_table, write_table
-from three_trees.synthetic import demo_config, write_demo
+from trivium.config import Config
+from trivium.definitions import POINT_DEFINITIONS, POINTS, RESEARCH_QUESTION
+from trivium.models import answer
+from trivium.query import fallback, functions
+from trivium.storage import read_table, write_table
+from trivium.synthetic import demo_config, write_demo
 
 
 @pytest.fixture(scope="module")
@@ -65,14 +65,14 @@ def _install_coach(
     monkeypatch: pytest.MonkeyPatch, report: dict[str, object],
 ) -> list[tuple[Config, str, str]]:
     calls = []
-    module = ModuleType("three_trees.coach")
+    module = ModuleType("trivium.coach")
 
     def scouting_report(cfg: Config, team: str, tournament: str) -> dict[str, object]:
         calls.append((cfg, team, tournament))
         return report
 
     module.scouting_report = scouting_report
-    monkeypatch.setitem(sys.modules, "three_trees.coach", module)
+    monkeypatch.setitem(sys.modules, "trivium.coach", module)
     return calls
 
 
@@ -218,7 +218,7 @@ def test_how_to_play_against_propagates_tournament_to_coach(
 def test_missing_coach_module_is_unavailable_before_resolving_team(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    monkeypatch.setitem(sys.modules, "three_trees.coach", None)
+    monkeypatch.setitem(sys.modules, "trivium.coach", None)
     result = functions.how_to_play_against(demo_config(tmp_path), "Team A1", "men")
     assert not result.available and result.table.empty
     assert "not built" in fallback.template(result).lower()
@@ -326,7 +326,7 @@ def test_point_follow_up_keeps_the_point_and_ignores_a_stale_team(demo_cfg: Conf
 
 
 def test_short_team_names_are_recognised(monkeypatch) -> None:
-    from three_trees.query import fallback
+    from trivium.query import fallback
 
     teams = ["Republic of Ireland", "Panama", "Korea DPR", "Korea Republic", "United States"]
     monkeypatch.setattr(fallback, "_get_tournament_teams", lambda cfg, tournament: teams)

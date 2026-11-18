@@ -17,8 +17,8 @@ import streamlit as st
 
 from components.layout import page_setup
 from components.sidebar import select_context
-from three_trees.config import load_config
-from three_trees.query.llm import answer
+from trivium.config import load_config
+from trivium.query.llm import answer
 
 
 def main() -> None:

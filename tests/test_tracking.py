@@ -1,5 +1,5 @@
-"""Tests for reading the tracking zip (three_trees.tracking.stream) and
-running per player (three_trees.tracking.running).
+"""Tests for reading the tracking zip (trivium.tracking.stream) and
+running per player (trivium.tracking.running).
 
 Every test builds its own small fake tracking zip, so no real data is used.
 """
@@ -14,11 +14,11 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.config import DATA_ROOT_ENV, load_config
-from three_trees.ingest.match_folders import PHYSICAL_COLUMNS
-from three_trees.storage import read_table, write_table
-from three_trees.tracking import stream
-from three_trees.tracking.running import (
+from trivium.config import DATA_ROOT_ENV, load_config
+from trivium.ingest.match_folders import PHYSICAL_COLUMNS
+from trivium.storage import read_table, write_table
+from trivium.tracking import stream
+from trivium.tracking.running import (
     check_against_fifa,
     match_to_fifa,
     player_totals,
@@ -26,8 +26,8 @@ from three_trees.tracking.running import (
     running_player_match,
     third,
 )
-from three_trees.tracking.stream import PERIODS, iter_frames, parse_clock, read_metadata
-from three_trees.tracking.sync import left_teams, sync_match, to_statsbomb
+from trivium.tracking.stream import PERIODS, iter_frames, parse_clock, read_metadata
+from trivium.tracking.sync import left_teams, sync_match, to_statsbomb
 
 # Fake tracking lines, written like the real file: one frame per line, with bare NaN
 # for missing values (not valid JSON) and one blank line that should be skipped.
@@ -424,7 +424,7 @@ def test_grid_search_finds_offset_beyond_15_seconds() -> None:
 
 
 def test_excluded_matches_by_filled_in_share() -> None:
-    from three_trees.tracking.running import EXCLUDE_FILLED_IN_SHARE, excluded_matches, filled_in_share
+    from trivium.tracking.running import EXCLUDE_FILLED_IN_SHARE, excluded_matches, filled_in_share
 
     running = pd.DataFrame({"tournament": "men", "match_id": [1, 1, 2, 2],
                             "frames": [100, 100, 100, 300], "imputed_frames": [80, 60, 10, 20]})
@@ -436,7 +436,7 @@ def test_excluded_matches_by_filled_in_share() -> None:
 
 
 def test_positions_window_sampled_and_turned_to_attacking_direction(tmp_path: Path) -> None:
-    from three_trees.tracking.positions import match_positions
+    from trivium.tracking.positions import match_positions
 
     frames = []
     for n in range(50):  # two sampled seconds per half at every=25

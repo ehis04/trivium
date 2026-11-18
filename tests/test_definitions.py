@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from three_trees import definitions
-from three_trees.measures import load_measures
+from trivium import definitions
+from trivium.measures import load_measures
 
 
 def test_every_mapped_measure_is_in_the_registry_and_points_are_complete() -> None:

@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 from streamlit.testing.v1 import AppTest
 
-from three_trees import synthetic
+from trivium import synthetic
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PAGES = [
@@ -31,13 +31,13 @@ def demo_root(tmp_path_factory: pytest.TempPathFactory) -> Path:
 
 @pytest.fixture(autouse=True)
 def demo_environment(demo_root: Path) -> Iterator[None]:
-    previous = os.environ.get("THREE_TREES_DATA_ROOT")
-    os.environ["THREE_TREES_DATA_ROOT"] = str(demo_root)
+    previous = os.environ.get("TRIVIUM_DATA_ROOT")
+    os.environ["TRIVIUM_DATA_ROOT"] = str(demo_root)
     yield
     if previous is None:
-        os.environ.pop("THREE_TREES_DATA_ROOT", None)
+        os.environ.pop("TRIVIUM_DATA_ROOT", None)
     else:
-        os.environ["THREE_TREES_DATA_ROOT"] = previous
+        os.environ["TRIVIUM_DATA_ROOT"] = previous
 
 
 @pytest.mark.parametrize("page", PAGES, ids=lambda path: path.name)

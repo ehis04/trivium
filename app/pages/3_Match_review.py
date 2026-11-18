@@ -13,10 +13,10 @@ from components.formations import shape_png
 from components.pitch import zone_panels
 from components.sidebar import select_context
 from components.layout import page_setup, show_table
-from three_trees.definitions import POINT_DEFINITIONS
-from three_trees.charts.formations import formation_timeline
-from three_trees.charts.match import dominance_bars, xg_timeline
-from three_trees.tracking.running import EXCLUDE_FILLED_IN_SHARE, IMPUTED_SHARE_MAX, filled_in_share
+from trivium.definitions import POINT_DEFINITIONS
+from trivium.charts.formations import formation_timeline
+from trivium.charts.match import dominance_bars, xg_timeline
+from trivium.tracking.running import EXCLUDE_FILLED_IN_SHARE, IMPUTED_SHARE_MAX, filled_in_share
 
 
 page_setup("Match review")

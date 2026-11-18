@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.models import tactical_profiles as tp
+from trivium.models import tactical_profiles as tp
 
 
 def _team_tournament(rng: np.random.Generator, n: int = 30) -> pd.DataFrame:

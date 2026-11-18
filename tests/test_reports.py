@@ -1,4 +1,4 @@
-"""Tests for the FIFA post-match report reader (three_trees.ingest.reports), on made-up page text."""
+"""Tests for the FIFA post-match report reader (trivium.ingest.reports), on made-up page text."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from three_trees.ingest.reports import parse_key_stats, parse_phases, report_path, report_rows
+from trivium.ingest.reports import parse_key_stats, parse_phases, report_path, report_rows
 
 # Made-up page text in the layout of the real reports (page 3 and page 4).
 KEY_STATS_PAGE = """3 November 2025 - Some Stadium - Pitch 1 - Some Ground - 18:45
@@ -74,11 +74,11 @@ def test_report_path_prefers_v2(tmp_path: Path) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Provider check (three_trees.tracking.provider)
+# Provider check (trivium.tracking.provider)
 # ---------------------------------------------------------------------------
 
 def test_provider_check_puts_both_providers_side_by_side() -> None:
-    from three_trees.tracking.provider import provider_check, provider_summary, statsbomb_team_match
+    from trivium.tracking.provider import provider_check, provider_summary, statsbomb_team_match
 
     # Made-up events: Aland has possession 1 (0-30 s), Bland possession 2 (30-40 s), all in period 1.
     events = pd.DataFrame({

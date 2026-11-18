@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from three_trees import cli
-from three_trees.config import DATA_ROOT_ENV
+from trivium import cli
+from trivium.config import DATA_ROOT_ENV
 
 EXAMPLE = Path(__file__).resolve().parents[1] / "config.example.yaml"
 
@@ -54,7 +54,7 @@ def test_build_runs_every_stage_then_validates(tmp_path: Path, ran: list[str]) -
 
 def test_build_only_keeps_pipeline_order_and_skips_validation(ran: list[str]) -> None:
     assert cli.main(["build", "--only", "features", "statsbomb", "--config", str(EXAMPLE)]) == 0
-    assert ran == ["three_trees.ingest.statsbomb", "three_trees.features.tables"]
+    assert ran == ["trivium.ingest.statsbomb", "trivium.features.tables"]
 
 
 def test_unbuilt_stage_is_reported(
@@ -65,14 +65,14 @@ def test_unbuilt_stage_is_reported(
     ran: list[str] = []
 
     def unbuilt(module: str, cfg: object) -> None:
-        if module == "three_trees.tracking.stream":
+        if module == "trivium.tracking.stream":
             raise NotImplementedError("Tracking")
         ran.append(module)
 
     monkeypatch.setattr(cli, "_run", unbuilt)
     assert cli.main(["build", "--config", str(EXAMPLE)]) == 1
     assert "Not built yet: Tracking (tracking stage skipped)" in capsys.readouterr().err
-    assert ran[-1] == cli.VALIDATION and "three_trees.models.sustainability" in ran
+    assert ran[-1] == cli.VALIDATION and "trivium.models.sustainability" in ran
 
 
 def test_config_error_exit_code(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:

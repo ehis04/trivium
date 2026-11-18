@@ -9,10 +9,10 @@ import pytest
 from statsmodels.regression.mixed_linear_model import MixedLM
 from statsmodels.tools.sm_exceptions import ConvergenceWarning
 
-from three_trees import measures as registry
-from three_trees.models import sustainability as ss
-from three_trees.storage import read_table, write_table
-from three_trees.synthetic import demo_config
+from trivium import measures as registry
+from trivium.models import sustainability as ss
+from trivium.storage import read_table, write_table
+from trivium.synthetic import demo_config
 
 OUTPUT_COLUMNS = [
     "tournament", "outcome", "term", "coef", "ci_low", "ci_high", "p_value", "n_rows", "n_teams",

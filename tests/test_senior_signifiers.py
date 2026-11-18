@@ -8,12 +8,12 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees import synthetic
-from three_trees.config import load_config
-from three_trees.ingest import open_data as od
-from three_trees.ingest import statsbomb as sb
-from three_trees.models import senior_signifiers as ss
-from three_trees.storage import write_table
+from trivium import synthetic
+from trivium.config import load_config
+from trivium.ingest import open_data as od
+from trivium.ingest import statsbomb as sb
+from trivium.models import senior_signifiers as ss
+from trivium.storage import write_table
 
 EXAMPLE_CONFIG = Path(__file__).resolve().parents[1] / "config.example.yaml"
 

@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 
 from components.data import load
-from three_trees.config import load_env_file
+from trivium.config import load_env_file
 
 
 def page_setup(title: str) -> None:

@@ -5,8 +5,8 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from three_trees.config import DATA_ROOT_ENV, load_config
-from three_trees.ingest.statsbomb import (
+from trivium.config import DATA_ROOT_ENV, load_config
+from trivium.ingest.statsbomb import (
     check_statsbomb,
     goals_by_team,
     load_events,

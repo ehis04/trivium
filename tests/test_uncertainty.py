@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.models import uncertainty as unc
+from trivium.models import uncertainty as unc
 
 
 def _table(

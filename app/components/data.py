@@ -5,8 +5,8 @@ from __future__ import annotations
 import pandas as pd
 import streamlit as st
 
-from three_trees.config import load_config
-from three_trees.storage import read_table, table_path
+from trivium.config import load_config
+from trivium.storage import read_table, table_path
 
 
 @st.cache_data(show_spinner=False)

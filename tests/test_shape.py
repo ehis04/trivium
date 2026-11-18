@@ -1,4 +1,4 @@
-"""Tests for team shape (three_trees.tracking.shape), FIFA phases (tracking.phases) and the
+"""Tests for team shape (trivium.tracking.shape), FIFA phases (tracking.phases) and the
 10-second windows before defensive actions (tracking.windows). All data is made up in the tests."""
 
 from __future__ import annotations
@@ -11,10 +11,10 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.tracking.outofplay import fifa_ball_alive, out_of_play_shares
-from three_trees.tracking.phases import phase_shares, read_phase_clips, running_by_phase, to_clock
-from three_trees.tracking.shape import shape_means, team_shape
-from three_trees.tracking.windows import defensive_actions, event_windows
+from trivium.tracking.outofplay import fifa_ball_alive, out_of_play_shares
+from trivium.tracking.phases import phase_shares, read_phase_clips, running_by_phase, to_clock
+from trivium.tracking.shape import shape_means, team_shape
+from trivium.tracking.windows import defensive_actions, event_windows
 
 
 # ---------------------------------------------------------------------------

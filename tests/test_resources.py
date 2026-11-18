@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.features import resources as res
-from three_trees.features import spread as sp
+from trivium.features import resources as res
+from trivium.features import spread as sp
 
 A, B = 1, 2
 NAMES = {A: "Alpha", B: "Beta"}

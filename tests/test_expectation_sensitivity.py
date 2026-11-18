@@ -6,8 +6,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from three_trees.models import expectation as xp
-from three_trees.models import expectation_sensitivity as sens
+from trivium.models import expectation as xp
+from trivium.models import expectation_sensitivity as sens
 
 
 def _synthetic_data() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:

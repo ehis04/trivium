@@ -7,10 +7,10 @@ import pandas as pd
 import pytest
 from sklearn.metrics import adjusted_rand_score
 
-from three_trees import measures as registry
-from three_trees.models import styles as st
-from three_trees.storage import read_table, write_table
-from three_trees.synthetic import demo_config
+from trivium import measures as registry
+from trivium.models import styles as st
+from trivium.storage import read_table, write_table
+from trivium.synthetic import demo_config
 
 
 def _profiles(n_each: int = 12, seed: int = 31) -> tuple[pd.DataFrame, np.ndarray]:

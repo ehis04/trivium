@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 from streamlit.testing.v1 import AppTest
 
-from three_trees.charts.team import phase_dot_plot, tournament_lines
+from trivium.charts.team import phase_dot_plot, tournament_lines
 
 
 def test_tournament_lines_selected_team_last_and_thick() -> None:

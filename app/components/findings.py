@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pandas as pd
 
-from three_trees.measures import available, measures
+from trivium.measures import available, measures
 
 
 def build_findings(team: str, team_match: pd.DataFrame, tournament: str) -> list[str]:

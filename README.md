@@ -1,6 +1,6 @@
-# Three Trees
+# Trivium
 
-Three Trees looks at why some teams go further in a tournament than their strength says they should, and what those teams do differently on the pitch.
+Trivium looks at why some teams go further in a tournament than their strength says they should, and what those teams do differently on the pitch.
 
 It uses match events, tracking data and match reports from the FIFA U-17 World Cups 2025, men's and women's. Every team is compared with what a pre-tournament rating predicted for it. The gap between the result and that prediction is the thing to explain.
 
@@ -32,16 +32,16 @@ Python 3.11 or later.
 python3 -m venv .venv
 .venv/bin/pip install -e ".[dev]"
 cp config.example.yaml config.yaml    # set data_root to the folder holding the data
-.venv/bin/three-trees build           # build every table
+.venv/bin/trivium build           # build every table
 .venv/bin/streamlit run app/Home.py   # open the dashboard
 ```
 
-`three-trees demo-data --out DIR` builds a small synthetic data set, so the dashboard can be tried without the real data.
+`trivium demo-data --out DIR` builds a small synthetic data set, so the dashboard can be tried without the real data.
 
 ## What is in the repository
 
 ```
-src/three_trees/   the pipeline: ingest, tracking, features, models, charts, query box
+src/trivium/   the pipeline: ingest, tracking, features, models, charts, query box
 app/               the Streamlit dashboard
 tests/             automated tests on small synthetic data
 ```
