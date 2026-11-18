@@ -1,0 +1,61 @@
+measure,label,unit,higher_is_better,table,column,tier,group,signifier,definition
+contests_share,Contests won share,share,true,team_match,contests_share,both,dominance,,"Share of the match's contests (duels, 50/50s, second balls) won by the team."
+territory_share,Field tilt,share,true,team_match,territory_share,both,dominance,1,Share of the match's passes and carries in the opponent's final third.
+chances_share,Chances share,share,true,team_match,chances_share,both,dominance,,Team non-penalty xG as a share of the match's non-penalty xG.
+dominance,Overall dominance,share,true,team_match,dominance,both,dominance,,"Mean of the contests, field tilt and chances shares."
+duels_share,Tackles won share,share,true,team_match,duels_share,both,contests,,Share of the match's tackle duels won by the team.
+aerials_share,Aerial duels won share,share,true,team_match,aerials_share,both,contests,,Share of the match's aerial duels won by the team (each aerial counted once).
+fifty_fifties_share,50/50s won share,share,true,team_match,fifty_fifties_share,both,contests,,Share of the match's 50/50 contests won by the team (each contest counted once).
+second_balls_share,Second balls won share,share,true,team_match,second_balls_share,both,contests,,Share of the match's loose-ball recoveries made by the team.
+aerials_won_above_hops,Aerials won above difficulty,aerials,true,team_match,aerials_won_above_hops,both,contests,,Aerials won minus the HOPS win probability summed over the team's aerials (positive = more won than their difficulty predicts).
+final_third_actions,Passes and carries in the final third,count,true,team_match,final_third_actions,both,territory,,The team's passes and carries in the opponent's final third (x >= 80).
+np_xg,Non-penalty xG,xG,true,team_match,np_xg,both,chances,,Non-penalty expected goals created in the match.
+np_xg_against,Non-penalty xG conceded,xG,false,team_match,np_xg_against,both,chances,,Non-penalty expected goals conceded in the match.
+conversion,Conversion,xG per unit of field tilt,true,team_match,conversion,both,efficiency,2,Non-penalty xG divided by field-tilt share (empty when field tilt is 0).
+security,Security,xG conceded per entry,false,team_match,security,both,efficiency,3,Non-penalty xG conceded per opponent entry into the team's defensive third (completed passes and carries starting x < 80 and ending x >= 80 in the opponent's coordinates); empty with no entries.
+defensive_work_per_dominance,Defensive work per point of dominance,actions per point,false,team_match,defensive_work_per_dominance,both,efficiency,4,"Defensive actions (pressures, tackles, interceptions, fouls committed, blocks) per percentage point of dominance."
+hsr_without_ball_per_dominance,High-speed running without the ball per point of dominance,metres per point,false,team_match,hsr_without_ball_per_dominance,men,efficiency,4,"High-speed running without the ball (metres over 20 km/h, tracking) per percentage point of dominance."
+minutes_outside_top11_share,Minutes outside the most-used 11,share,true,team_match,minutes_outside_top11_share,both,load,5,Share of the team's minutes in the match played by players outside its 11 players with most tournament minutes.
+starters_changed,Starters changed from the previous match,count,,team_match,starters_changed,both,load,5,Number of starters who did not start the team's previous match.
+top3_hsr_share,Top-3 players' share of high-speed running,share,false,team_match,top3_hsr_share,men,load,5,The three highest players' share of the team's high-speed running in the match (tracking).
+top2_xg_xa_share,Top-2 players' share of xG + xA,share,false,team_match,top2_xg_xa_share,both,threat,6,Share of the team's xG plus xA from its two highest contributors in the match.
+chance_zone_spread,Spread of chance creation across zones,index 0-1,true,team_match,chance_zone_spread,both,threat,6,"Normalised entropy of the team's xG (shot zone) plus xA (assisting pass zone) across the 18 pitch zones (1 = evenly spread, 0 = one zone)."
+possession_share,Possession share,share,,team_match,possession_share,both,style,,"Share of the match's possession time (first to last event of each possession, periods 1-2)."
+pressures_per_opp_possession_min,Pressures per minute of opponent possession,per minute,,team_match,pressures_per_opp_possession_min,both,style,,Pressures per minute of opponent possession time.
+directness,Directness,index 0-1,,team_match,directness,both,style,,Mean StatsBomb possession directness over the team's possessions with a value.
+distance_km,Total distance,km,,team_match,distance_km,men,resources,,Team total distance covered (FIFA physical file).
+hsr_km,High-speed running,km,,team_match,hsr_km,men,resources,,Team distance above 20 km/h (FIFA physical file: 20-25 and 25+ km/h bands).
+hsr_without_ball_km,High-speed running without the ball,km,,team_match,hsr_without_ball_km,men,resources,,Team distance faster than 20 km/h while the opponent had the ball (tracking).
+match_number,Match number,count,,team_match,match_number,both,context,,The team's match number in the tournament (1 = first match).
+starters_minutes_cum,Starters' built-up minutes,minutes,,team_match,starters_minutes_cum,both,context,,Minutes the starting eleven had played in the tournament before this match.
+rest_days,Rest days,days,,team_match,rest_days,both,context,,Days since the team's previous match (missing for the first match).
+overperformance,Points above expectation,points,true,overperformance,overperformance,both,expectation,,Actual points minus expected points from the Elo-based model (shootouts count as draws).
+expected_points,Expected points,points,true,overperformance,expected_points,both,expectation,,Expected points from the leave-team-out ordered logit on the Elo gap.
+actual_points,Actual points,points,true,overperformance,actual_points,both,expectation,,"Points won: 3 win, 1 draw (including shootouts), 0 loss."
+xa,Expected assists (xA),xG,true,team_match,xa,both,chances,,Non-penalty xG of the shots assisted by the team's passes.
+opponent_final_third_entries,Opponent entries into the defensive third,count,false,team_match,opponent_final_third_entries,both,chances,,"Opponent completed passes and carries into the team's defensive third (starting x < 80, ending x >= 80 in the opponent's coordinates)."
+pressures,Pressures,count,,team_match,pressures,both,resources,,Pressures applied by the team.
+defensive_actions,Defensive actions,count,,team_match,defensive_actions,both,resources,,"Pressures, tackles, interceptions, fouls committed and blocks by the team."
+possession_minutes,Possession time,minutes,,team_match,possession_minutes,both,resources,,The team's possession time in the match.
+players_used,Players used,count,,team_match,players_used,both,load,,Players with minutes in the match.
+ppda,Passes allowed per defensive action (PPDA),passes per action,,team_match,ppda,both,style,,"Opponent passes in their own 60% of the pitch per team tackle, interception, foul committed or block in that area (lower = more intense pressing)."
+sprint_km,Sprinting,km,,team_match,sprint_km,men,resources,,Team distance above 25 km/h (FIFA physical file).
+distance_km_tracking,Total distance (tracking),km,,team_match,distance_km_tracking,men,resources,,Team total distance from tracking (speed / 25 per frame).
+hsr_km_tracking,High-speed running (tracking),km,,team_match,hsr_km_tracking,men,resources,,Team distance faster than 20 km/h from tracking.
+hsr_with_ball_km,High-speed running with the ball,km,,team_match,hsr_with_ball_km,men,resources,,"Team distance faster than 20 km/h while the team had the ball (tracking); with the ball, without it and out of play add up to high-speed running (tracking)."
+hsr_out_of_play_km,High-speed running with the ball out of play,km,,team_match,hsr_out_of_play_km,men,resources,,Team distance faster than 20 km/h while the ball was out of play (tracking).
+hsr_without_ball_defensive_third_km,High-speed running without the ball in the defensive third,km,,team_match,hsr_without_ball_defensive_third_km,men,resources,,Team distance faster than 20 km/h without the ball in its own third (tracking).
+line_height_m,Defensive line height,metres,,team_match,line_height_m,men,territory,,"Mean distance from own goal of the four deepest outfield players, once a second, averaged over seconds without the ball (tracking)."
+team_length_m,Team length,metres,,team_match,team_length_m,men,style,,"Distance from the deepest to the highest outfield player, once a second, averaged over seconds without the ball (tracking)."
+team_width_m,Team width,metres,,team_match,team_width_m,men,style,,"Widest outfield spread across the pitch, once a second, averaged over seconds without the ball (tracking)."
+fifa_build_up_share,FIFA phase: build-up,share,,team_match,fifa_build_up_share,men,style,,The team's FIFA clip time in build-up over its clip time in all 11 FIFA phases (FIFA Enhanced file; a second counts in every clip covering it).
+fifa_progression_share,FIFA phase: progression,share,,team_match,fifa_progression_share,men,style,,The team's FIFA clip time in progression over its clip time in all 11 FIFA phases (FIFA Enhanced file; a second counts in every clip covering it).
+fifa_final_third_share,FIFA phase: final third,share,,team_match,fifa_final_third_share,men,style,,The team's FIFA clip time in final third over its clip time in all 11 FIFA phases (FIFA Enhanced file; a second counts in every clip covering it).
+fifa_long_ball_share,FIFA phase: long ball,share,,team_match,fifa_long_ball_share,men,style,,The team's FIFA clip time in long ball over its clip time in all 11 FIFA phases (FIFA Enhanced file; a second counts in every clip covering it).
+fifa_attacking_transition_share,FIFA phase: attacking transition,share,,team_match,fifa_attacking_transition_share,men,style,,The team's FIFA clip time in attacking transition over its clip time in all 11 FIFA phases (FIFA Enhanced file; a second counts in every clip covering it).
+fifa_counter_attack_share,FIFA phase: counter attack,share,,team_match,fifa_counter_attack_share,men,style,,The team's FIFA clip time in counter attack over its clip time in all 11 FIFA phases (FIFA Enhanced file; a second counts in every clip covering it).
+fifa_press_share,FIFA phase: press,share,,team_match,fifa_press_share,men,style,,The team's FIFA clip time in press over its clip time in all 11 FIFA phases (FIFA Enhanced file; a second counts in every clip covering it).
+fifa_counter_press_share,FIFA phase: counter-press,share,,team_match,fifa_counter_press_share,men,style,,The team's FIFA clip time in counter-press over its clip time in all 11 FIFA phases (FIFA Enhanced file; a second counts in every clip covering it).
+fifa_defensive_transition_share,FIFA phase: defensive transition,share,,team_match,fifa_defensive_transition_share,men,style,,The team's FIFA clip time in defensive transition over its clip time in all 11 FIFA phases (FIFA Enhanced file; a second counts in every clip covering it).
+fifa_recovery_share,FIFA phase: recovery,share,,team_match,fifa_recovery_share,men,style,,The team's FIFA clip time in recovery over its clip time in all 11 FIFA phases (FIFA Enhanced file; a second counts in every clip covering it).
+fifa_block_share,FIFA phase: block,share,,team_match,fifa_block_share,men,style,,The team's FIFA clip time in block over its clip time in all 11 FIFA phases (FIFA Enhanced file; a second counts in every clip covering it).

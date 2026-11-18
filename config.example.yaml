@@ -1,0 +1,40 @@
+# Copy to config.yaml (ignored by git) and set data_root for this machine.
+# data_root and every path below must be outside the repo.
+# Relative paths are read from data_root; absolute paths are used as given.
+#
+# Environment variables:
+#   THREE_TREES_CONFIG  path to the config file (default: ./config.yaml)
+#   THREE_TREES_DATA_ROOT        overrides data_root
+#   ANTHROPIC_API_KEY    query box; read from the environment only, never stored here
+
+data_root: ~/three_trees_data
+
+# Parquet tables, DuckDB file, check report and Excel tables.
+build_dir: build
+
+# StatsBomb events: one CSV or several part files, matched by the glob and concatenated in name order.
+statsbomb:
+  men:
+    events: statsbomb/u17_world_cup_2025_events*.csv
+    matches: statsbomb/u17_world_cup_2025_matches.csv
+  women:
+    events: statsbomb/u17_womens_world_cup_2025_events*.csv
+    matches: statsbomb/u17_womens_world_cup_2025_matches.csv
+
+# Provider match folders (men only): one folder per match, e.g. "M1 Qatar - Italy",
+# holding physical metrics, broadcast tracking zip, FIFA event data, Enhanced
+# phase file and post-match report PDF.
+match_folders:
+  men: match_folders
+
+# Women's FIFA post-match report PDFs (public, FIFA Training Centre).
+# Men's reports are read from their match folders.
+fifa_reports:
+  women: fifa_reports_women
+
+# Public external data, downloaded into external.dir.
+external:
+  dir: external
+  results_men: https://raw.githubusercontent.com/martj42/international_results/master/results.csv
+  results_women: https://raw.githubusercontent.com/martj42/womens-international-results/master/results.csv
+  statsbomb_open_data: https://raw.githubusercontent.com/statsbomb/open-data/master/data

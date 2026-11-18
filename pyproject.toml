@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "three-trees"
+dynamic = ["version"]
+description = "Tournament pathways at the FIFA U-17 World Cups 2025: tactical profiles that explain who beats their strength."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.1",
+    "numpy>=1.26",
+    "pyarrow>=14",
+    "duckdb>=1.0",
+    "orjson>=3.9",
+    "pdfplumber>=0.11",
+    "scikit-learn>=1.4",
+    "statsmodels>=0.14",
+    "scipy>=1.11",
+    "plotly>=5.18",
+    "mplsoccer>=1.2",
+    "streamlit>=1.32",
+    "anthropic>=0.40",
+    "rapidfuzz>=3.5",
+    "pyyaml>=6.0",
+    "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "kaleido>=1.0"]
+figures = ["kaleido>=1.0"]
+
+[project.scripts]
+three-trees = "three_trees.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "three_trees.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+three_trees = ["lookup/*.csv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

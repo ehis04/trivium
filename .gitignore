@@ -1,0 +1,52 @@
+# Data (never committed)
+data/*
+build/
+raw/
+downloads/
+*.csv
+!src/three_trees/lookup/*.csv
+*.parquet
+*.zip
+*.jsonl
+*.json
+*.duckdb
+*.duckdb.wal
+*.db
+*.pdf
+*.xlsx
+
+# Secrets and local settings
+config.yaml
+.env
+.env.*
+.streamlit/secrets.toml
+
+# Notebook outputs can hold data rows
+notebooks/*.ipynb
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Editors and OS
+.DS_Store
+Thumbs.db
+.idea/
+*:Zone.Identifier
+
+# Extra 
+docs/p2_tools*
+# Internal notes (kept locally only)
+CLAUDE.md
+docs/build_context*.txt
+*.pptx
